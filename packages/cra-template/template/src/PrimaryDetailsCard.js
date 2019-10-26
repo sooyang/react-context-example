@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
+import UserContext from './UserContext';
 
 class PrimaryDetailsCard extends Component {
   render() {
-    const { userDetails } = this.props;
     return (
-      <div>
-        {userDetails.name}, {userDetails.dateJoined}
-      </div>
+      <UserContext.Consumer>
+        {userDetails => {
+          return (
+            <div>
+              {userDetails.name}, {userDetails.dateJoined}
+            </div>
+          );
+        }}
+      </UserContext.Consumer>
     );
   }
 }

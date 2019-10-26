@@ -1,5 +1,6 @@
 import React from 'react';
 import Profile from './Profile';
+import UserContext from './UserContext';
 
 const App = () => {
   const userDetails = {
@@ -8,7 +9,11 @@ const App = () => {
     status: 'active',
     dateJoined: 'January 2019',
   };
-  return <Profile userDetails={userDetails} />;
+  return (
+    <UserContext.Provider value={userDetails}>
+      <Profile userDetails={userDetails} />
+    </UserContext.Provider>
+  );
 };
 
 export default App;
